@@ -1,0 +1,16 @@
+pipeline {
+    agent {label 'docker'}
+        stages {
+            stage('vcs') {
+                steps{
+                    git branch: 'docker',
+                    url: 'https://github.com/anji1649github/docker-repository.git'
+                     }
+                        }
+            stage('show'){
+                steps {
+                    sh 'docker info'
+                }
+            }
+        }
+}
